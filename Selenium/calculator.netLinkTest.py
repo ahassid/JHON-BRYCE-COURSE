@@ -12,7 +12,9 @@ driver.maximize_window()
 salaryButtonLink = driver.find_element(By.LINK_TEXT, "Salary Calculator")
 salaryButton_text = salaryButtonLink.text
 if salaryButton_text == 'Salary Calculator':
-    print('salary calculator text appears as expected')
+    print('Text appears as expected')
+else:
+    print('Text not found')
 salaryButtonLink.click()
 fitnessButtonLink = driver.find_element(By.PARTIAL_LINK_TEXT, "Fitness")
 fitnessButtonLink.click()
