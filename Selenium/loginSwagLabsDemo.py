@@ -19,9 +19,14 @@ password.click()
 password.clear()
 password.send_keys("secret_sauce")
 login = driver.find_element(By.ID, "login-button")
+login_text = login.accessible_name
+if login_text == 'Login':
+    print('login text appears as expected')
 login.click()
 
 menu = driver.find_element(By.ID, "react-burger-menu-btn")
 menu.click()
+img = driver.find_element(By.ID, "item_1_img_link")
+img.click()
 
 driver.close()
