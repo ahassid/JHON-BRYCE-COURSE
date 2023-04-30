@@ -9,14 +9,19 @@ from webdriver_manager.core.utils import ChromeType
 driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
 driver.get('https://www.calculator.net/')
 driver.maximize_window()
+
 salaryButtonLink = driver.find_element(By.LINK_TEXT, "Salary Calculator")
-salaryButton_text = salaryButtonLink.text
-if salaryButton_text == 'Salary Calculator':
+salaryButtonText = salaryButtonLink.text
+if salaryButtonText == 'Salary Calculator':
     print('Text appears as expected')
 else:
     print('Text not found')
 salaryButtonLink.click()
+
 fitnessButtonLink = driver.find_element(By.PARTIAL_LINK_TEXT, "Fitness")
+fitnessButtonLinkText = fitnessButtonLink.text
+if fitnessButtonLinkText == 'Fitness & Health':
+    print('Text appears as expected')
 fitnessButtonLink.click()
 
 driver.close()
