@@ -24,4 +24,9 @@ if fitnessButtonLinkText == 'Fitness and Health':
     print('Text appears as expected')
 fitnessButtonLink.click()
 
+search = driver.find_element(By.ID, 'calcSearchTerm')
+search.click()
+search.clear()
+search.send_keys('ga')
+
 driver.close()
