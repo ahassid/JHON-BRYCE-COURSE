@@ -20,7 +20,7 @@ salaryButtonLink.click()
 
 fitnessButtonLink = driver.find_element(By.PARTIAL_LINK_TEXT, "Fitness")
 fitnessButtonLinkText = fitnessButtonLink.text
-if fitnessButtonLinkText == 'Fitness & Health':
+if fitnessButtonLinkText == 'Fitness and Health':
     print('Text appears as expected')
 fitnessButtonLink.click()
 
