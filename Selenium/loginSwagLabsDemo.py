@@ -8,6 +8,7 @@ from webdriver_manager.core.utils import ChromeType
 
 driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
 driver.get('https://www.saucedemo.com/')
+driver.maximize_window()
 user = driver.find_element(By.ID, "user-name")
 user.click()
 user.clear()
@@ -19,4 +20,8 @@ password.clear()
 password.send_keys("secret_sauce")
 login = driver.find_element(By.ID, "login-button")
 login.click()
+
+menu = driver.find_element(By.ID, "react-burger-menu-btn")
+menu.click()
+
 driver.close()
