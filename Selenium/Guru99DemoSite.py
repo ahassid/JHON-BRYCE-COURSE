@@ -12,7 +12,8 @@ driver.get('https://demo.guru99.com/test/newtours/reservation.php')
 driver.maximize_window()
 
 radioFlightType = driver.find_element(By.NAME, 'tripType')
-if radioFlightType.is_selected():
+# if radioFlightType.is_selected():
+if radioFlightType.is_enabled():
     print('This is a Round Trip Ticket')
 else:
     print('This is a One Way Ticket')
@@ -29,7 +30,10 @@ returningMonth.select_by_visible_text('November')
 returningDay = Select(driver.find_element(By.NAME, 'toDay'))
 returningDay.select_by_index(26)
 
-radioServiceClass = driver.find_elements(By.CLASS_NAME, 'servClass')
+radioServiceClass = driver.find_elements(By.NAME, 'servClass')
 radioServiceClass[2].click()
+
+continueButton = driver.find_element(By.NAME, 'findFlights')
+continueButton.click()
 
 driver.close()
