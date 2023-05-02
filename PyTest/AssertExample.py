@@ -31,7 +31,7 @@ import pytest
 #     res = input * 2
 #     assert res == expected_out, 'Assert found'
 
-def testLength(input, expected_out, desc):
+def testNameLength(input, expected_out, desc):
     print('start test for ', desc)
     result = len(input)
     assert result == expected_out, 'Assert found'
