@@ -1,0 +1,44 @@
+import json
+
+import requests
+
+urlBase = 'https://petstore.swagger.io/v2/'
+
+
+def testGetStatus():
+    response = requests.get(urlBase + 'pet/1245')
+    assert response.status_code == 200
+    # response.json()
+
+
+def testGetBody():
+    response = requests.get(urlBase + 'pet/12')
+    jsonAsDict = response.json()
+    json_formatted_str = json.dumps(jsonAsDict, indent=2)
+    print(json_formatted_str)
+
+    id = jsonAsDict['id']
+    name = jsonAsDict['name']
+    status = jsonAsDict["status"]
+    print(id)
+    print(name)
+    print(status)
+
+
+headers = {'Content-Type': 'application/json'}
+user = {
+    'id': 6666,
+    'username': 'user1',
+    'firstName': 'Michael',
+    'lastName': 'Jackson',
+    'email': 'Michael.Jackson@gmail.com',
+    'password': '123456789',
+    'phone': '0525381648',
+    'userStatus': 0
+}
+
+def testPostUpdate():
+    response = requests.post(urlBase + 'user', headers=headers, data=json.dumps(user))
+    responseCode = response.status_code
+    assert responseCode == 200
+    codeFromResultBody = response.json()['code']
